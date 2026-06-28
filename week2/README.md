@@ -46,9 +46,9 @@ The assignment uses a relational database with four main tables:
 *   `order_items`: A junction table linking products to orders, detailing quantity and price for each item in an order.
 
 **Entity Relationships:**
-*   `customers` ──(1:N)──▶ `orders`
-*   `orders` ──(1:N)──▶ `order_items`
-*   `products` ──(1:N)──▶ `order_items`
+*   `customers` ──(1:N)── `orders`
+*   `orders` ──(1:N)── `order_items`
+*   `products` ──(1:N)── `order_items`
 
 ### ER Diagram
 <img width="572" height="603" alt="image" src="https://github.com/user-attachments/assets/9e9bc06b-1e63-47f8-836c-7d6a1f612b77" />
