@@ -12,6 +12,9 @@ The assignment uses a relational database with four main tables:
 *   `products`: Contains product information, including category, price, and stock quantity.
 *   `orders`: Records order details such as date, status, and total amount.
 *   `order_items`: A junction table linking products to orders, detailing quantity and price for each item in an order.
+## ER Diagram
+<img width="572" height="603" alt="image" src="https://github.com/user-attachments/assets/9e9bc06b-1e63-47f8-836c-7d6a1f612b77" />
+
 
 ## Step-by-Step Implementation
 The SQL queries are organized into logical sections to cover a wide range of database operations:
