@@ -86,4 +86,4 @@ The SQL queries are organized into five graded sections covering a wide range of
     *   Wrote a `TRANSACTION` block to perform multiple database operations atomically, ensuring that all changes either succeed or fail together.
 
 ### Outputs
-*  [`week2_Assignment.pdf`](/week2/week2_Assignment.pdf): A pdf document containing all SQL queries (Task 1 and Task 2), their outputs, and detailed answers to the assignment questions. Converted from the original Word file with screenshots, as suggested in the Saturday's 27-06-2026 meeting.
+*  [`week2_Assignment.pdf`](/week2/week2_Assignment.pdf): A pdf document containing all SQL queries (Task 1 and Task 2), their outputs, and detailed answers to the assignment questions. _Converted from the original Word file with screenshots, as suggested in the Saturday's 27-06-2026 meeting._
