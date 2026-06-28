@@ -26,3 +26,8 @@ Below you will find my details and an assignment tracker to easily navigate thro
 This module focuses on getting familiar with Python basics and data handling using the Pandas library on a shopping dataset. 
 * **Documentation:** [Week 1 README](./week1/README.md)
 * **Notebook:** [`Week1_Assignment.ipynb`](./week1/Week1_Assignment.ipynb)
+
+### [Week 2: SQL Fundamentals and Database Management](./week2/)
+This module covers a wide range of SQL concepts, from basic queries to advanced topics like joins, aggregations, and transactions.
+* **Documentation:** [Week 2 README](./week2/README.md)
+* **Output:** [`week2_Assignment.pdf`](./week2/week2_Assignment.pdf)
