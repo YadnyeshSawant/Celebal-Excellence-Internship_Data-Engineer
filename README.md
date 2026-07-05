@@ -31,3 +31,9 @@ This module focuses on getting familiar with Python basics and data handling usi
 This module covers a wide range of SQL concepts, from basic queries to advanced topics like joins, aggregations, and transactions.
 * **Documentation:** [Week 2 README](./week2/README.md)
 * **Output:** [`week2_Assignment.pdf`](./week2/week2_Assignment.pdf)
+
+### Week 3: Advanced SQL with Subqueries, CTEs, and Window Functions
+This module focuses on using advanced SQL features like Subqueries, CTEs, and Window Functions to perform complex data analysis on the Superstore dataset.
+* **Documentation:** Week 3 README
+* **SQL Scripts:** `Create _Insert.sql`, `Task.sql`
+* **Output:** [`week3_Assignment.pdf`](./week3/week3_Assignment.pdf)
