@@ -16,6 +16,9 @@ The assignment was executed in a structured manner, covering data setup, queryin
 1.  **Data Setup:**
     *   Loaded the Superstore dataset into a raw table (`superstore_raw`).
     *   Normalized the data by creating and populating three distinct tables: `customers`, `products`, and `orders`.
+      
+         <img width="1307" height="941" alt="Er-Diagram" src="https://github.com/user-attachments/assets/f5e8046e-fb4f-4e6e-888f-5e98dccaeabf" />
+
     *   Established relationships using Primary and Foreign Keys.
 
 2.  **Perform Required Queries:**
