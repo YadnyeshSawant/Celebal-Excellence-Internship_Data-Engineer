@@ -35,5 +35,10 @@ This module covers a wide range of SQL concepts, from basic queries to advanced 
 ### Week 3: Advanced SQL with Subqueries, CTEs, and Window Functions
 This module focuses on using advanced SQL features like Subqueries, CTEs, and Window Functions to perform complex data analysis on the Superstore dataset.
 * **Documentation:** Week 3 README
-* **SQL Scripts:** `Create _Insert.sql`, `Task.sql`
+* **SQL Scripts:** `Create_Insert.sql`, `Task.sql`
 * **Output:** [`week3_Assignment.pdf`](./week3/week3_Assignment.pdf)
+
+### Week 4: Azure Cloud Fundamentals and Data Pipeline Implementation using ADF
+This module covers Azure cloud concepts and building an end-to-end data pipeline using Azure Storage Account and Azure Data Factory (ADF).
+* **Documentation:** Week 4 README
+* **Output:** `Week_4_Assignment.pdf`
