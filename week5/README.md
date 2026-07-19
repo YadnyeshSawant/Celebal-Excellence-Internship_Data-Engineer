@@ -32,4 +32,5 @@ The assignment was completed by answering a series of theoretical and practical 
     *   The pipeline sequentially filtered out duplicate records, filled null values in the price column with 0, and grouped the data by `store_id` (or `Region` in the provided solution) to calculate total revenue.
 
 ### Outputs
+*   [`week5_Assignment.ipynb`](/week5/week5.ipynb): The Jupyter Notebook containing all the PySpark code, transformations, and outputs for the assignment.
 *   [`week5_Assignment.pdf`](/week5/week5_Assignment.pdf): The final report document containing detailed answers, PySpark code snippets, and output screenshots for all 15 questions.

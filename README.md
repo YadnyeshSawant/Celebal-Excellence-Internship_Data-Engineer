@@ -46,4 +46,5 @@ This module covers Azure cloud concepts and building an end-to-end data pipeline
 ### Week 5: Apache Spark Fundamentals and Data Processing
 This module introduces the core concepts of Apache Spark and its advantages over MapReduce. It provides hands-on experience with the PySpark DataFrame API for data cleaning, transformation, and aggregation.
 * **Documentation:**  [Week 5 README](./week5/README.md)
+* **Notebook:** [`Week5.ipynb`](./week5/week5.ipynb)
 * **Output:** [`week5_Assignment.pdf`](./week5/week5_Assignment.pdf)
