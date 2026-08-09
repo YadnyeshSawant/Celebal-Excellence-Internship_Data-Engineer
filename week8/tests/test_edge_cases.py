@@ -64,7 +64,10 @@ def create_test_database():
                 REFERENCES orders(order_id),
 
             FOREIGN KEY (product_id)
-                REFERENCES products(product_id)
+                REFERENCES products(product_id),
+
+            CHECK (discount_percent >= 0),
+            CHECK (discount_percent <= 100)
         );
     """)
 
@@ -405,6 +408,266 @@ def test_invalid_date():
 
 
 # ============================================================
+# Test 7
+# Order ID in order_items not in orders
+# ============================================================
+
+def test_order_items_invalid_order_reference():
+
+    connection = create_test_database()
+
+    try:
+
+        connection.execute("""
+            INSERT INTO customers
+            VALUES (
+                'CUST_TEST_007',
+                'Test Customer 7',
+                'test7@example.com'
+            )
+        """)
+
+        connection.execute("""
+            INSERT INTO products
+            VALUES (
+                'PROD_TEST_007',
+                'Test Product 7',
+                100
+            )
+        """)
+
+        connection.commit()
+
+        # Attempt to insert an order item referencing a non-existent order ID
+        try:
+
+            connection.execute("""
+                INSERT INTO order_items
+                VALUES (
+                    'ITEM_TEST_007',
+                    'ORD_DOES_NOT_EXIST',
+                    'PROD_TEST_007',
+                    1,
+                    100,
+                    0
+                )
+            """)
+
+            connection.commit()
+
+            raise AssertionError(
+                "Invalid order reference in order_items was accepted"
+            )
+
+        except sqlite3.IntegrityError:
+
+            print(
+                "PASS: Invalid order reference in order_items rejected"
+            )
+
+    finally:
+
+        connection.close()
+
+
+# ============================================================
+# Test 8
+# discount_percent > 100
+# ============================================================
+
+def test_invalid_discount_percent():
+
+    connection = create_test_database()
+
+    try:
+
+        connection.execute("""
+            INSERT INTO customers
+            VALUES (
+                'CUST_TEST_008',
+                'Test Customer 8',
+                'test8@example.com'
+            )
+        """)
+
+        connection.execute("""
+            INSERT INTO products
+            VALUES (
+                'PROD_TEST_008',
+                'Test Product 8',
+                100
+            )
+        """)
+
+        connection.execute("""
+            INSERT INTO orders
+            VALUES (
+                'ORD_TEST_008',
+                'CUST_TEST_008',
+                '2026-01-08 10:00:00',
+                'PENDING'
+            )
+        """)
+
+        connection.commit()
+
+        # Attempt to insert an order item with discount_percent > 100
+        try:
+
+            connection.execute("""
+                INSERT INTO order_items
+                VALUES (
+                    'ITEM_TEST_008',
+                    'ORD_TEST_008',
+                    'PROD_TEST_008',
+                    1,
+                    100,
+                    150
+                )
+            """)
+
+            connection.commit()
+
+            raise AssertionError(
+                "Discount percent > 100 was accepted"
+            )
+
+        except sqlite3.IntegrityError:
+
+            print(
+                "PASS: Discount percent > 100 rejected"
+            )
+
+    finally:
+
+        connection.close()
+
+
+# ============================================================
+# Test 9
+# quantity is 0
+# ============================================================
+
+def test_zero_quantity():
+
+    connection = create_test_database()
+
+    try:
+
+        connection.execute("""
+            INSERT INTO customers
+            VALUES (
+                'CUST_TEST_009',
+                'Test Customer 9',
+                'test9@example.com'
+            )
+        """)
+
+        connection.execute("""
+            INSERT INTO products
+            VALUES (
+                'PROD_TEST_009',
+                'Test Product 9',
+                100
+            )
+        """)
+
+        connection.execute("""
+            INSERT INTO orders
+            VALUES (
+                'ORD_TEST_009',
+                'CUST_TEST_009',
+                '2026-01-09 10:00:00',
+                'PENDING'
+            )
+        """)
+
+        # Insert order item with quantity = 0
+        connection.execute("""
+            INSERT INTO order_items
+            VALUES (
+                'ITEM_TEST_009',
+                'ORD_TEST_009',
+                'PROD_TEST_009',
+                0,
+                100,
+                0
+            )
+        """)
+
+        connection.commit()
+
+        # Verify it was inserted successfully
+        result = connection.execute("""
+            SELECT quantity
+            FROM order_items
+            WHERE item_id = 'ITEM_TEST_009'
+        """).fetchone()[0]
+
+        assert result == 0
+
+        print(
+            "PASS: Quantity of 0 processed successfully"
+        )
+
+    finally:
+
+        connection.close()
+
+
+# ============================================================
+# Test 10
+# order_date in the future
+# ============================================================
+
+def test_future_order_date():
+
+    connection = create_test_database()
+
+    try:
+
+        connection.execute("""
+            INSERT INTO customers
+            VALUES (
+                'CUST_TEST_010',
+                'Test Customer 10',
+                'test10@example.com'
+            )
+        """)
+
+        future_date = "2099-12-31 23:59:59"
+
+        connection.execute(f"""
+            INSERT INTO orders
+            VALUES (
+                'ORD_TEST_010',
+                'CUST_TEST_010',
+                '{future_date}',
+                'PENDING'
+            )
+        """)
+
+        connection.commit()
+
+        # Validate that database can store it, but custom scripts can alert on future date
+        result = connection.execute("""
+            SELECT order_date
+            FROM orders
+            WHERE order_id = 'ORD_TEST_010'
+        """).fetchone()[0]
+
+        assert result == future_date
+
+        print(
+            "PASS: Future order date stored (requires reporting constraints)"
+        )
+
+    finally:
+
+        connection.close()
+
+
+# ============================================================
 # Run Tests
 # ============================================================
 
@@ -420,7 +683,11 @@ def main():
         test_invalid_customer_reference,
         test_duplicate_customer_id,
         test_duplicate_order_id,
-        test_invalid_date
+        test_invalid_date,
+        test_order_items_invalid_order_reference,
+        test_invalid_discount_percent,
+        test_zero_quantity,
+        test_future_order_date
     ]
 
     passed = 0
