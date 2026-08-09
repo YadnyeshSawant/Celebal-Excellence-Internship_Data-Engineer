@@ -576,20 +576,6 @@ The analytics system operates in a sequential pipeline. Execute the scripts in t
 
 ---
 
-## Key Learnings
-
-Through this assignment, the following data engineering and analytics concepts were learned:
-
-- **E-Commerce Ingestion Architecture**: Designing standard, scalable transactional databases representing store sales data.
-- **Data Quality Auditing**: Writing cleaning logic in Python to validate email strings, capture missing properties, identify duplicate indices, and strip orphan transactions.
-- **SQLite Referential Constraints**: Utilizing drivers to enforce foreign key validations and check ranges across in-memory and persistent files.
-- **Window Query Construction**: Utilizing SQL partition analytics to calculate running regional sales, item category rankings (`DENSE_RANK()`), and consecutive order gaps (`LAG()`).
-- **Advanced Query Orchestration**: Designing nested database CTE scripts to track cohort monthly retentions, CLV tiers, YoY growth ratios, and market basket combinations.
-- **Console Reporting Development**: Structuring user reporting interfaces dynamically reading console parameters.
-- **Isolated Validation Testing**: Structuring testing modules matching standard Python testing methodologies.
-
----
-
 ## Conclusion
 
 This assignment successfully demonstrates the design and execution of an end-to-end e-commerce order analytics system using Python and SQLite. Raw, mock CSV files containing structural and constraint anomalies were parsed and standardized through a multi-stage cleaning pipeline, loaded into an indexed relational SQLite instance, analyzed using advanced window functions and CTE retention schemas, and exposed via an interactive console report engine. Automated unit testing confirmed absolute integrity constraints, demonstrating a solid framework for building transaction-heavy enterprise data warehouse analytics pipelines.

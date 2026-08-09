@@ -43,8 +43,17 @@ This module covers Azure cloud concepts and building an end-to-end data pipeline
 * **Documentation:** Week 4 README
 * **Output:** `Week_4_Assignment.pdf`
 
-### Week 5: Apache Spark Fundamentals and Data Processing
+### [Week 5: Apache Spark Fundamentals and Data Processing](./week5/)
 This module introduces the core concepts of Apache Spark and its advantages over MapReduce. It provides hands-on experience with the PySpark DataFrame API for data cleaning, transformation, and aggregation.
-* **Documentation:**  [Week 5 README](./week5/README.md)
+* **Documentation:** [Week 5 README](./week5/README.md)
 * **Output:** [`week5_Assignment.pdf`](./week5/week5_Assignment.pdf)
 * **Notebook:** [`Week5.ipynb`](./week5/week5.ipynb)
+
+### [Week 7: Slowly Changing Dimensions (SCD Type 1) with Delta Lake in Databricks](./Week7/delta-lake-assignment/)
+This module demonstrates incremental data ingestion and implementing SCD Type 1 behavior on customer records using PySpark and Delta Lake inside Azure Databricks compute.
+* **Documentation:** [Week 7 README](./Week7/delta-lake-assignment/README.md)
+* **Notebook:** [`delta_scd_assignment.ipynb`](./Week7/delta-lake-assignment/notebooks/delta_scd_assignment.ipynb)
+
+### [Week 8: E-Commerce Order Analytics System](./week8/)
+This module focuses on an end-to-end data pipeline: programmatically generating flawed synthetic data, executing cleaning transformations using Python, modeling an SQLite database, running advanced SQL queries (CTEs, Window Functions, Cohorts), and creating an interactive reporting CLI dashboard.
+* **Documentation:** [Week 8 README](./week8/README.md)
